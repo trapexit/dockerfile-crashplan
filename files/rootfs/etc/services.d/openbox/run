@@ -1,0 +1,9 @@
+#!/bin/bash
+
+exec 2>&1
+
+s6-svwait -u /var/run/s6/services/crashplan-server
+s6-svwait -u /var/run/s6/services/tigervnc
+s6-ftrig-wait /var/run/s6/services/tigervnc/event S
+
+exec env DISPLAY=:0 HOME=/root /usr/bin/openbox-session

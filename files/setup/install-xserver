@@ -1,0 +1,10 @@
+#!/bin/bash
+
+apt-get install -qy --force-yes --no-install-recommends \
+    x11-xserver-utils \
+    openbox \
+    xfonts-base \
+    xfonts-100dpi \
+    xfonts-75dpi \
+    xbase-clients \
+    xkb-data

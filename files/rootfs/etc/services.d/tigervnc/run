@@ -1,0 +1,14 @@
+#!/usr/bin/with-contenv /bin/bash
+
+VNC_PORT=${VNC_PORT:-5900}
+
+exec 2>&1
+
+s6-svwait -u /var/run/s6/services/crashplan-server
+
+exec s6-tcpserver4 \
+    0.0.0.0 "${VNC_PORT}" \
+    foreground pkill Xvnc '' \
+    foreground sleep 1 '' \
+    foreground s6-ftrig-notify /var/run/s6/services/tigervnc/event S '' \
+    /opt/bin/xvnc

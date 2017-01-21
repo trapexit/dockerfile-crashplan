@@ -1,0 +1,5 @@
+#!/bin/bash
+
+TIGERVNC_TARGZ=/tmp/pkgs/tigervnc-1.7.0.x86_64.tar.gz
+
+tar -xz --strip=1 -C / < "${TIGERVNC_TARGZ}"

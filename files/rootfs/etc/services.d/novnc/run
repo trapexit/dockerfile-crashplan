@@ -1,0 +1,5 @@
+#!/bin/bash
+
+exec 2>&1
+
+exec /opt/novnc/utils/launch.sh --listen 6080 --vnc localhost:5900

@@ -1,0 +1,12 @@
+#!/bin/bash
+
+NOVNC_TARGZ=/tmp/pkgs/novnc-558544364cf0d1f91d18b3a5768db8c8292f7ff6.tar.gz
+WEBSOCKIFY_TARGZ=/tmp/pkgs/websockify-cb1508fa495bea4b333173705772c1997559ae4b.tar.gz
+
+mkdir -p /opt/novnc/utils/websockify
+tar -xz --strip=1 -C /opt/novnc < "${NOVNC_TARGZ}"
+tar -xz --strip=1 -C /opt/novnc/utils/websockify < "${WEBSOCKIFY_TARGZ}"
+
+apt-get install -y --force-yes --no-install-recommends \
+    python \
+    python-numpy

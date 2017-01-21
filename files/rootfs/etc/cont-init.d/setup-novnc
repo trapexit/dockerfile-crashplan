@@ -1,0 +1,7 @@
+#!/usr/bin/with-contenv /bin/bash
+
+if [ "${NOVNC}" != "" ]; then
+  rm /etc/services.d/novnc/down
+fi
+  
+

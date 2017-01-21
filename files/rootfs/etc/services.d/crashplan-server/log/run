@@ -1,0 +1,5 @@
+#!/bin/bash
+
+exec s6-log -b -p \
+    n20 s1000000 T \
+    /var/log/crashplan-server

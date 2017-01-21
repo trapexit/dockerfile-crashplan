@@ -1,0 +1,23 @@
+#!/bin/bash
+
+apt-get install -qy --force-yes --no-install-recommends \
+    grep \
+    sed \
+    cpio \
+    gzip \
+    wget \
+    gtk2-engines \
+    ttf-ubuntu-font-family \
+    net-tools
+
+mkdir -p /tmp/crashplan
+tar -vxz --strip=1 -C /tmp/crashplan < /tmp/pkgs/CrashPlan_4.8.0_Linux.tgz
+
+mkdir -p /opt/crashplan
+cd /opt/crashplan
+cat /tmp/crashplan/CrashPlan_4.8.0.cpi | gzip -d -c - | cpio -i --no-preserve-owner
+
+cat > /opt/crashplan/bin/run.conf <<EOF
+SRV_JAVA_OPTS="-Dfile.encoding=UTF-8 -Dapp=CrashPlanService -DappBaseName=CrashPlan -Xms20m -Xmx512m -Dsun.net.inetaddr.ttl=300 -Dnetworkaddress.cache.ttl=300 -Dsun.net.inetaddr.negative.ttl=0 -Dnetworkaddress.cache.negative.ttl=0 -Dc42.native.md5.enabled=false"
+GUI_JAVA_OPTS="-Dfile.encoding=UTF-8 -Dapp=CrashPlanDesktop -DappBaseName=CrashPlan -Xms20m -Xmx512m -Dsun.net.inetaddr.ttl=300 -Dnetworkaddress.cache.ttl=300 -Dsun.net.inetaddr.negative.ttl=0 -Dnetworkaddress.cache.negative.ttl=0 -Dc42.native.md5.enabled=false"
+EOF

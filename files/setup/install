@@ -1,0 +1,13 @@
+#!/bin/bash
+
+/tmp/setup/init
+
+/tmp/setup/install-s6-networking
+/tmp/setup/install-tigervnc
+/tmp/setup/install-novnc
+/tmp/setup/install-java
+/tmp/setup/install-crashplan
+/tmp/setup/install-xserver
+/tmp/setup/install-rootfs
+
+/tmp/setup/cleanup

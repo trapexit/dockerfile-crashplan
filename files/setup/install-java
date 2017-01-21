@@ -1,0 +1,6 @@
+#!/bin/bash
+
+JAVA_TGZ="/tmp/pkgs/jre-linux-x64-1.8.0_72.tgz"
+
+mkdir -p /opt/java
+tar -vxz --strip=1 -C /opt/java < "${JAVA_TGZ}"
