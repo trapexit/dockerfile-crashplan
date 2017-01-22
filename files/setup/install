@@ -2,7 +2,6 @@
 
 /tmp/setup/init
 
-/tmp/setup/install-s6-networking
 /tmp/setup/install-tigervnc
 /tmp/setup/install-novnc
 /tmp/setup/install-java
