@@ -1,5 +1,5 @@
-#!/bin/bash
+#!/usr/bin/execlineb -P
 
-exec 2>&1
+fdmove -c 2 1
 
-exec /opt/novnc/utils/launch.sh --listen 6080 --vnc localhost:5900
+/opt/novnc/utils/launch.sh --listen 6080 --vnc localhost:5900

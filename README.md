@@ -18,7 +18,7 @@ $ docker run -d \
     -p 6080:6080 \
     -v /media:/media \
     -v /:/rootfs \
-    trapexit/crashplan:1.1
+    trapexit/crashplan:1.2
 ```
 
 Remove `-e NOVNC=true` and `-p 6080:6080` if you don't wish to use `novnc.`
@@ -42,5 +42,5 @@ docker run -d \
     -p ${NOVNC_PORT}:6080 \
     -v /media:/media \
     -v /:/rootfs \
-    trapexit/crashplan:1.1
+    trapexit/crashplan:1.2
 ```
