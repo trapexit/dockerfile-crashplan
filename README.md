@@ -1,5 +1,6 @@
 # CrashPlan via Docker container
 
+## Componenets
 * Ubuntu 16.04
 * s6-overlay v1.19.1.1
 * tigervnc v1.7.0
@@ -7,7 +8,13 @@
 * jre v1.8.0_72
 * CrashPlan v4.8.0
 
-## Usage
+## Features
+* Usage of novnc is optional
+* Xvnc server and CrashPlan GUI launch when connecting (reduces resource consumption)
+
+## Setup
+
+### Manual
 
 ```
 $ docker run -d \
@@ -23,7 +30,7 @@ $ docker run -d \
 
 Remove `-e NOVNC=true` and `-p 6080:6080` if you don't wish to use `novnc.`
 
-## Script
+### Script
 
 ```
 #!/bin/bash
@@ -44,3 +51,14 @@ docker run -d \
     -v /:/rootfs \
     trapexit/crashplan:1.2
 ```
+
+## Usage
+
+### VNC (directly)
+
+* Using whichever VNC client you prefer connect to the `VNC_PORT`
+
+### NOVNC (VNC via web)
+
+* Make sure `-e NOVNC=true` is included when creating the container.
+* goto `http://<your-host-ip>:${NOVNC_PORT}/vnc.html?autoconnect=true&resize=scale`

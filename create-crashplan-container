@@ -15,4 +15,8 @@ docker run -d \
     -p ${NOVNC_PORT}:6080 \
     -v /media:/media \
     -v /:/rootfs \
-    trapexit/crashplan
+    trapexit/crashplan:1.2
+if [ $? ]; then
+    echo "novnc url: http://localhost:${NOVNC_PORT}/vnc.html?autoconnect=true&resize=scale"
+    echo "vnc port: ${VNC_PORT}"
+fi
