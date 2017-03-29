@@ -10,15 +10,6 @@ source "${TARGETDIR}/bin/run.conf"
 
 cd "${TARGETDIR}"
 exec java \
-    -Dfile.encoding=UTF-8 \
-    -Dapp=CrashPlanService \
-    -DappBaseName=CrashPlan \
-    -Xms20m \
-    -Xmx1024m \
-    -Dsun.net.inetaddr.ttl=300 \
-    -Dnetworkaddress.cache.ttl=300 \
-    -Dsun.net.inetaddr.negative.ttl=0 \
-    -Dnetworkaddress.cache.negative.ttl=0 \
-    -Dc42.native.md5.enabled=false \
+    ${SRV_JAVA_OPTS} \
     -classpath "$CLASSPATH" \
     com.backup42.service.CPService
