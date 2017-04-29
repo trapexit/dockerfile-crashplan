@@ -11,7 +11,7 @@ apt-get install -qy --force-yes --no-install-recommends \
     net-tools
 
 mkdir -p /tmp/crashplan
-tar -vxz --strip=1 -C /tmp/crashplan < /tmp/pkgs/CrashPlan_4.8.0_Linux.tgz
+tar -vxz --strip=1 -C /tmp/crashplan < /tmp/pkgs/CrashPlan_4.8.2_Linux.tgz
 
 mkdir -p /opt/crashplan
 cd /opt/crashplan
