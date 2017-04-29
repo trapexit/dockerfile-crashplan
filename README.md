@@ -3,10 +3,10 @@
 ## Componenets
 * Ubuntu 16.04
 * s6-overlay v1.19.1.1
-* tigervnc v1.7.0
+* tigervnc v1.7.1
 * novnc 558544364cf0d1f91d18b3a5768db8c8292f7ff6
 * jre v1.8.0_72
-* CrashPlan v4.8.0
+* CrashPlan v4.8.2
 
 ## Features
 * Usage of novnc is optional
