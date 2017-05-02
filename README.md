@@ -25,7 +25,7 @@ $ docker run -d \
     -p 6080:6080 \
     -v /media:/media \
     -v /:/rootfs \
-    trapexit/crashplan:1.2
+    trapexit/crashplan:1.3.1
 ```
 
 Remove `-e NOVNC=true` and `-p 6080:6080` if you don't wish to use `novnc.`
@@ -45,11 +45,12 @@ docker run -d \
     --restart=unless-stopped \
     --label=app=crashplan \
     --label="backup=${NAME}" \
+    -e NOVNC=true \
     -p ${VNC_PORT}:5900 \
     -p ${NOVNC_PORT}:6080 \
     -v /media:/media \
     -v /:/rootfs \
-    trapexit/crashplan:1.2
+    trapexit/crashplan:1.3.1
 ```
 
 ## Usage
